@@ -1,20 +1,20 @@
 package main
 
-import (
-	"fmt"
-	"runtime"
-)
+import "golang.org/x/tour/pic"
+
+func Pic(dx, dy int) (p [][]uint8) {
+	r := make([][]uint8, dy)
+	for i := range r {
+		r[i] = make([]uint8, dx)
+		for j := range r[i] {
+			r[i][j] = uint8(i ^ j + (i+j)/2)
+		}
+	}
+
+	p = r
+	return
+}
 
 func main() {
-	fmt.Print("Go runs on ")
-	switch os := runtime.GOOS; os {
-	case "darwin":
-		fmt.Println("OS X.")
-	case "linux":
-		fmt.Println("Linux.")
-	default:
-		// freebsd, openbsd,
-		// plan9, windows...
-		fmt.Printf("%s.", os)
-	}
+	pic.Show(Pic)
 }
