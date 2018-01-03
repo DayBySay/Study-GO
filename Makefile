@@ -4,6 +4,6 @@ run:
 fmt:
 	gofmt -w *.go
 	
-save: fmt
+add-commit: fmt
 	git add .
 	git commit -m '...'
