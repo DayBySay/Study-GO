@@ -1,7 +1,9 @@
 run:
 	go run Study-GO.go
 
-save:
+fmt:
 	gofmt -w *.go
+	
+save: fmt
 	git add .
 	git commit -m '...'
