@@ -5,7 +5,7 @@ test:
 	go test -v $$(go list ./...)
 
 fmt:
-	gofmt -w *.go
+	gofmt -w ./
 	
 add-commit: fmt
 	git add .
